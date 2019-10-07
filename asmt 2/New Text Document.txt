@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <math.h>
+/*************************/
+// x^y = pow(x,y);
+void "OPTION #1"()
+{
+/* declare local variables */
+float fpD, tempfpD;
+int sign, myExponent, i, tempExponent;
+/* prompt for floating point decimal number */
+printf("Please enter your floating point decimal: ");
+scanf("%f", &fpD)
+/* Check for 0--if so, print result */
+if(fpD == 0.0){
+printf("sign = 0, exponent = 00000000, mantissa = 00000000000000000000000, IEEE-754: 00000000");
+return
+}
+/* Print sign: if number>0, sign is 0, else 1 */
+if(fpD > 0)
+sign = 0;
+else {
+sign = 1;
+tempfpD = 0 - fpD;
+}
+/* take absolute value of number before generating significand */
+//you could try fpD = abs(fpD);
+/* Normalize number:
+while number >= 2, divide by 2, increment exponent */
+tempfpD = 0 - fpD;
+increment = 0;
+while(tempfpD > 2) {
+tempfpD /= 2;
+myExponent++;
+}
+//while number <1, multiply by 2, decrement exponent
+decrement = 0;
+while(tempfpD < 1) {
+tempfpD *= 2;
+myExponent--;
+}
+/* Bias exponent by 127 and print each bit in binary with 8-iteration for-loop*/
+tempExponent = myExponent + 127;
+for(i = 0; i < 8; i++) {
+if (tempExponent >= 128) {
+printf("1");
+tempExponent -= 128;
+}
+else
+printf("0");
+tempExponent *= 2;
+}
+/* Hide 1 and print significand in binary with 23-iteration for-loop*/
+tempFpdNum = tempfpD - 1;
+for(i = 0; i < 23; i++) {
+//...
+}
+/* Print IEEE-754 representation */
+//calculation
+
+return;
+}
+
+/***********************************************************************/
+void "OPTION #2"()
+{
+/* declare local variables */
+
+/* prompt for IEEE-754 representation */
+printf("..")
+scanf("%x","&ieee_number")
+/* check for special cases: 0, -0, +infinity, -infinity, NaN,
+if so, print and return */
+if(ieee_number==0x00000000){
+	printf("0")
+	return
+}
+same for the rest just use there hex values 
+.
+.
+.
+
+
+
+/* Mask sign from number: if sign=0, print "+", else print "-" */
+sign = (ieee_number & 0x800000000)/pow.(2,31)
+printf("...")
+/* Mask biased exponent and significand from number */
+
+/* If biased exponent=0, number is denormalized with unbiased exponent of -126,
+print denormalized number as fraction * 2^(-126), return */
+
+/* Unbias exponent by subtracting 127 and print */
+/* Add hidden 1 and print normalized decimal number */
+new_signicand=1+significand;
+normed=new_significand*pow(2,exp);
+/* Print decimal number */
+return;
+
+}
+
+int main()
+{
+/* declare local variables */
+/* until user chooses to quit, prompt for choice and select appropriate function */
+
+return 0;
+}
